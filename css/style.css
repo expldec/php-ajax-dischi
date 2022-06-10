@@ -1,0 +1,56 @@
+:root {
+  --ms-background-primary: #1e2d3b;
+  --ms-background-secondary: #2e3a46;
+  --ms-text-lowcontrast-color: #808080;
+}
+
+body {
+  font-family: "Montserrat", Helvetica, sans-serif;
+}
+
+header {
+  min-height: 4rem;
+  padding: 0.5rem;
+  background-color: var(--ms-background-secondary);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+header .header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+}
+header img {
+  height: 90%;
+}
+
+#app {
+  height: 100vh;
+}
+main {
+  background-color: var(--ms-background-primary);
+  min-height: calc(100% - 4rem);
+}
+
+main .app-list__container {
+  padding-top: 2rem;
+  color: white;
+}
+
+.album-card {
+  background-color: var(--ms-background-secondary);
+  height: 100%;
+}
+.album-card .album-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.album-card .album-title ~ * {
+  color: var(--ms-text-lowcontrast-color);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
