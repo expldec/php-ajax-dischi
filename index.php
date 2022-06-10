@@ -26,7 +26,26 @@
         <main>
             <div class="app-list__container container">
                 <div class="row row-cols-2 row-cols-md-4 g-2">
-                    <!-- <AppAlbumCard v-for="(item, index) in filteredAlbums" :key="index" :album="item" /> -->
+                    <?php
+                    foreach ($database as $key => $album) {
+                    ?>
+                        <div class="col">
+                            <div class="album-card p-2 text-center">
+                                <?php
+                                echo "<img class=\"img-fluid\" src=\"" . $album["poster"] . "\" alt=\"\" />";
+                                ?>
+                                <h2 class="album-title fw-bold mt-3">
+                                    <?php echo $album["title"]; ?>
+                                </h2>
+
+                                <p> <?php echo $album["author"]; ?>
+                                </p>
+                                <div>
+                                    <?php echo $album["year"] . " &centerdot; " . $album["genre"]; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </main>
