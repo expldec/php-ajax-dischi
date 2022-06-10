@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="favicon.ico" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>PHP-Ajax Dischi</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <header>
+        <div class="header__logo rounded-circle">
+          <img src="img/discogs-record-icon.svg" alt="" />
+        </div>
+      </header>
+      <main>
+        <div class="app-list__container container">
+          <div class="form-group d-flex flex-grow-1">
+            <select class="form-select d-flex" aria-label="Genre Select" v-model="genreSelect">
+              <option selected value>All genres</option>
+              <option v-for="(item,index) in genres" :key="index" :value="item.toLowerCase()">{{ item }}</option>
+            </select>
+            <button type="button" class="btn btn-primary ms-2" @click="filterSearch(genreSelect)">Search</button>
+          </div>
+          <div class="row row-cols-2 row-cols-md-4 g-2">
+            <div class="col" v-for="(album, index) in albums" :key="index">
+              <div class="album-card p-2 text-center">
+                <img class="img-fluid" :src="album.poster" alt="" />
+                <h2 class="album-title fw-bold mt-3">{{ album.title }}</h2>
+
+                <p>{{ album.author }}</p>
+                <div>{{ album.year }} &centerdot; {{ album.genre }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
